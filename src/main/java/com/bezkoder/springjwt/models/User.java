@@ -1,5 +1,6 @@
 package com.bezkoder.springjwt.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,6 +15,7 @@ import javax.validation.constraints.Size;
 @Setter
 @Getter
 @Entity
+@AllArgsConstructor
 @Table(name = "users", 
     uniqueConstraints = { 
       @UniqueConstraint(columnNames = "username"),

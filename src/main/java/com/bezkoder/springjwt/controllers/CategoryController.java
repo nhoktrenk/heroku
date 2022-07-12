@@ -6,7 +6,6 @@ import com.bezkoder.springjwt.models.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,7 +29,6 @@ public class CategoryController {
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "{id}")
-    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> getDetail(@PathVariable Long id) {
         Optional<Category> optionalCategory = categoryService.findById(id);
         if (!optionalCategory.isPresent()) {
@@ -40,7 +38,6 @@ public class CategoryController {
     }
 
     @RequestMapping(method = RequestMethod.PUT, path = "{id}")
-    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Category> update(@PathVariable Long id, @RequestBody Category category) {
         Optional<Category> optionalCategory = categoryService.findById(id);
         if (!optionalCategory.isPresent()) {
@@ -52,7 +49,6 @@ public class CategoryController {
     }
 
     @RequestMapping(method = RequestMethod.DELETE, path = "{id}")
-    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         if (!categoryService.findById(id).isPresent()) {
             ResponseEntity.badRequest().build();

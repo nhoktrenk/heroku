@@ -24,8 +24,22 @@ public class Post {
     private Long id;
 
     @NotBlank
+    @Size(min = 5)
+    private String title;
+
+    @NotBlank
     @Size(min = 10)
     private String content;
+
+    private String image;
+
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private User User;
+
+    @ManyToOne
+    @JoinColumn(name="category_id")
+    private Category Category;
 
     @CreationTimestamp
     @Column(updatable = false)
