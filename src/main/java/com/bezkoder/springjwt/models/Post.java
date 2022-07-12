@@ -33,13 +33,17 @@ public class Post {
 
     private String image;
 
+    @Column(name="user_id")
+    private Integer userId;
     @ManyToOne
-    @JoinColumn(name="user_id")
-    private User User;
+    @JoinColumn(name="user_id",updatable = false,insertable = false)
+    private User user;
 
+    @Column(name="category_id")
+    private Integer categoryId;
     @ManyToOne
-    @JoinColumn(name="category_id")
-    private Category Category;
+    @JoinColumn(name="category_id",updatable = false,insertable = false)
+    private Category category;
 
     @CreationTimestamp
     @Column(updatable = false)

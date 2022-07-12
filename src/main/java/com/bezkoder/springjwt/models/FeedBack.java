@@ -31,9 +31,11 @@ public class FeedBack {
     @Size(min = 10)
     private String content;
 
+    @Column(name="user_id")
+    private Integer userId;
     @ManyToOne
-    @JoinColumn(name="user_id")
-    private User User;
+    @JoinColumn(name="user_id",updatable = false,insertable = false)
+    private User user;
 
 
     @CreationTimestamp

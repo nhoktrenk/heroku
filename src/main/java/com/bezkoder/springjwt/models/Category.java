@@ -19,7 +19,7 @@ import javax.validation.constraints.Size;
         uniqueConstraints = {
                 @UniqueConstraint(columnNames = "name"),
         })
-public class Category {
+    public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
