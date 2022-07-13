@@ -1,5 +1,6 @@
 package com.bezkoder.springjwt.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,12 +32,13 @@ public class FeedBack {
     @Size(min = 10)
     private String content;
 
-    @Column(name="user_id")
-    private Integer userId;
-    @ManyToOne
-    @JoinColumn(name="user_id",updatable = false,insertable = false)
-    private User user;
+    @JsonIgnore
 
+    @ManyToOne
+    @JoinColumn(name="user_id", insertable = false, updatable = false)
+    private User user;
+    @Column(name = "user_id")
+    private Long user_id;
 
     @CreationTimestamp
     @Column(updatable = false)

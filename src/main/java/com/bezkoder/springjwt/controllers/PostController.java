@@ -46,8 +46,6 @@ public class PostController {
         existCategory.setContent(post.getContent());
         existCategory.setImage(post.getImage());
         existCategory.setTitle(post.getTitle());
-        existCategory.setUserId(post.getUserId());
-        existCategory.setCategoryId(post.getCategoryId());
         return ResponseEntity.ok(postService.save(existCategory));
     }
 

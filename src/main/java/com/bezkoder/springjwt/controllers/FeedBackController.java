@@ -43,7 +43,6 @@ public class FeedBackController {
         FeedBack existFeedBack = optionalFeedBack.get();
         existFeedBack.setContent(feedBack.getContent());
         existFeedBack.setTitle(feedBack.getTitle());
-        existFeedBack.setUserId(feedBack.getUserId());
         return ResponseEntity.ok(feedBackService.save(existFeedBack));
     }
 
